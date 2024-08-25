@@ -4,8 +4,12 @@
 name: Go CD
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   build:
@@ -26,5 +30,6 @@ jobs:
             ssh-add ~/.ssh/id_rsa-github-actions-golang
             ssh -T git@github.com
             git pull origin main
-            sudo service baguskurnia status
+            go build
+            sudo service baguskurnia restart
             sudo nginx -s reload
