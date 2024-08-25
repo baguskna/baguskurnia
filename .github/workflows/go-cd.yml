@@ -26,5 +26,6 @@ jobs:
             ssh-add ~/.ssh/id_rsa-github-actions-golang
             ssh -T git@github.com
             git pull origin main
+            go build
             sudo service baguskurnia status
             sudo nginx -s reload
