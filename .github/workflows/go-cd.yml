@@ -22,4 +22,5 @@ jobs:
           port: 22
           script: |
             cd /home/bagus/go/src/baguskurnia
-            git pull origin main
+            pwd
+            ls -l ~/.ssh/
