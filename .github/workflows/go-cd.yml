@@ -23,9 +23,6 @@ jobs:
           port: 22
           script: |
             cd /home/bagus/go/src/baguskurnia
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/id_rsa-github-actions-golang
-            ssh -T git@github.com
             git pull origin main
             go build
             sudo service baguskurnia restart
