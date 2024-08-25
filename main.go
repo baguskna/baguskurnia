@@ -41,7 +41,7 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 
-	e.Static(dir+"/images", "images")
+	e.Static("/images", "images")
 	e.Static("/css", "css")
 
 	e.Renderer = newTemplate()
