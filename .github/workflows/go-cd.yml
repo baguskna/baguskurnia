@@ -31,5 +31,5 @@ jobs:
             ssh -T git@github.com
             git pull origin main
             go build
-            sudo service baguskurnia status
+            sudo service baguskurnia restart
             sudo nginx -s reload
