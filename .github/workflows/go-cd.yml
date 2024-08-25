@@ -1,3 +1,6 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
 name: Go CD
 
 on:
@@ -9,17 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up SSH for GitHub
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-      - name: deploy using ssh
+      - name: deploy usiing ssh
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
@@ -28,6 +23,9 @@ jobs:
           port: 22
           script: |
             cd /home/bagus/go/src/baguskurnia
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/id_rsa-github-actions-golang
+            ssh -T git@github.com
             git pull origin main
             go build
             sudo service baguskurnia restart
