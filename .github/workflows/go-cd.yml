@@ -24,6 +24,6 @@ jobs:
             cd /home/bagus/go/src/baguskurnia
             pwd
             ls -l ~/.ssh/
-            ls
+            eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/id_rsa-github-actions-golang
             ssh -T git@github.com
