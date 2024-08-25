@@ -27,3 +27,4 @@ jobs:
             eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/id_rsa-github-actions-golang
             ssh -T git@github.com
+            git pull origin main
