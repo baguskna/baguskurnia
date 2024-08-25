@@ -50,5 +50,9 @@ func main() {
 		return c.Render(200, "index", "")
 	})
 
+	e.GET("/test", func(c echo.Context) error {
+		return c.Render(200, "test", "")
+	})
+
 	e.Logger.Fatal(e.Start(":3000"))
 }
