@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"io"
 	"log"
@@ -32,12 +31,6 @@ func newTemplate() *Templates {
 }
 
 func main() {
-	// get current directory
-	dir, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(dir, "dir")
 	e := echo.New()
 	e.Use(middleware.Logger())
 
