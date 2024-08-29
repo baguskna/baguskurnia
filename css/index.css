@@ -1,9 +1,21 @@
-.title-wrapper {
+body {
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
+/* .title-wrapper {
+} */
+
 .title {
+  font-size: 40px;
+}
+
+.content-wrapper {
+  max-width: 700px;
+  width: 100%;
+}
+
+.text {
   font-size: 20px;
 }
