@@ -1,6 +1,7 @@
 body {
   align-items: center;
   display: flex;
+  font-family: "Plus Jakarta Sans", system-ui;
   justify-content: center;
 }
 
