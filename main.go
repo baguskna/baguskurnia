@@ -1,6 +1,7 @@
 package main
 
 import (
+	"baguskurnia/controller"
 	"html/template"
 	"io"
 	"log"
@@ -39,13 +40,8 @@ func main() {
 
 	e.Renderer = newTemplate()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.Render(200, "index", "")
-	})
-
-	e.GET("/test", func(c echo.Context) error {
-		return c.Render(200, "test", "")
-	})
+	homeController := controller.NewHomeController()
+	e.GET("/", homeController.HomeHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
