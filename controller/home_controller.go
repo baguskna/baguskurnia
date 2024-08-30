@@ -30,5 +30,9 @@ func (h *HomeController) HomeHandler(c echo.Context) error {
 		}
 	}
 
+	// handle not found query 'hl'
+	if query != "" && query != "jp" {
+		return c.Render(200, "404", "")
+	}
 	return c.Render(200, "index", data)
 }
