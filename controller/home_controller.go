@@ -23,7 +23,7 @@ func (h *HomeController) HomeHandler(c echo.Context) error {
 		Content: "Software engineer with 4 years of experiene",
 	}
 
-	if query == "jp" {
+	if query == "ja" {
 		data = HomeData{
 			Title:   "👋 Hi, バグスです",
 			Content: "Software engineer with 4 years of experiene",
@@ -31,7 +31,7 @@ func (h *HomeController) HomeHandler(c echo.Context) error {
 	}
 
 	// handle not found query 'hl'
-	if query != "" && query != "jp" {
+	if query != "" && query != "ja" {
 		return c.Render(200, "404", "")
 	}
 	return c.Render(200, "index", data)
