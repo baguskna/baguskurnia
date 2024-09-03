@@ -20,13 +20,13 @@ func (h *HomeController) HomeHandler(c echo.Context) error {
 
 	data := HomeData{
 		Title:   "👋 Hi, I'm Bagus Kurnia",
-		Content: "Software engineer with 4 years of experiene",
+		Content: "Software engineer with 4 years of experiences",
 	}
 
 	if query == "ja" {
 		data = HomeData{
-			Title:   "👋 Hi, バグスです",
-			Content: "Software engineer with 4 years of experiene",
+			Title:   "👋 Hi, バグス・クルニアです",
+			Content: "4年の経験があるソフトウェアエンジニア",
 		}
 	}
 

@@ -13,12 +13,14 @@
 </head>
 
 <body>
+  {{ template "header" . }}
+  <div class="content-wrapper">
     <div class="title-wrapper">
       <h1 class="title">{{ .Title }}</h1>
     </div>
     <div class="description">
       <p class="text">{{ .Content }}</p>
-      <p class="text">Crafting software solution with focus of high performance</p>
+      <!-- <p class="text">Crafting software solution with focus of high performance</p> -->
     </div>
   </div>
 </body>
