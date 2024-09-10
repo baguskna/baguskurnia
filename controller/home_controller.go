@@ -13,6 +13,7 @@ func NewHomeController() *HomeController {
 type HomeData struct {
 	Title   string
 	Content string
+	Locale  string
 }
 
 func (h *HomeController) HomeHandler(c echo.Context) error {
@@ -21,12 +22,18 @@ func (h *HomeController) HomeHandler(c echo.Context) error {
 	data := HomeData{
 		Title:   "👋 Hi, I'm Bagus Kurnia",
 		Content: "Software engineer with 4 years of experiences",
+		Locale:  "en",
+	}
+
+	if query == "en" {
+		return c.Render(200, "index", data)
 	}
 
 	if query == "ja" {
 		data = HomeData{
 			Title:   "👋 Hi, バグス・クルニアです",
 			Content: "4年の経験があるソフトウェアエンジニア",
+			Locale:  "ja",
 		}
 	}
 
