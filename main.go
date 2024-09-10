@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"io"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/labstack/echo/v4"
@@ -41,6 +42,16 @@ func main() {
 	e.Renderer = newTemplate()
 
 	homeController := controller.NewHomeController()
+	// Custom 404 handler
+	e.HTTPErrorHandler = func(err error, c echo.Context) {
+		if he, ok := err.(*echo.HTTPError); ok {
+			if he.Code == http.StatusNotFound {
+				c.Render(200, "404", "")
+				return
+			}
+		}
+		e.DefaultHTTPErrorHandler(err, c)
+	}
 	e.GET("/", homeController.HomeHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))
