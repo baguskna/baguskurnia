@@ -22,9 +22,18 @@ func (h *HomeController) HomeHandler(c echo.Context) error {
 	query := c.FormValue("hl")
 
 	data := HomeData{
-		Title:   "👋 Hi, I'm Bagus Kurnia",
-		Content: template.HTML(`<p class="text">Software engineer with 4 years of experiences</p>`),
-		Locale:  "en",
+		Title: "👋 Hi, I'm Bagus Kurnia",
+		Content: template.HTML(`
+			<p class="text">Software engineer with 4 years of experiences</p>
+			<p class="text">
+				<span>
+					Text stack
+					<pre>.ts</pre>
+					<pre>.go</pre>
+				</span>
+			</p>
+		`),
+		Locale: "en",
 	}
 
 	if query == "en" {
