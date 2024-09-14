@@ -5,6 +5,10 @@ body {
   padding: 0;
 }
 
+pre {
+  display: inline-block;
+}
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
